@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <h1 style={{fontSize: '4rem'}}>Celebrities</h1>
       <button onClick={getRandom} >Add Random Famous</button> 
-      <button onClick={sortName} >Sort by Name</button> 
+      <button onClick={sortNameAscending} >Sort by Name</button> 
       <button onClick={sortPopulatiry} >Sort by Popularity</button>
       <table style={{margin: '20px auto'}}>
             <tr>
@@ -51,25 +51,26 @@ function App() {
 
 
   function getRandom(){
-    let num = Math.floor(Math.random() * restOfContacts.length)
-    let randomContact = restOfContacts[num]
+    let num = Math.floor(Math.random() * restOfContacts.length);
+    let randomContact = restOfContacts[num];
     
-    let newRestOfContacts = [...restOfContacts]
-    let newContacts = [...contacts]
+    let newRestOfContacts = [...restOfContacts];
+    let newContacts = [...contacts];
     
-    newRestOfContacts.splice(num,1)
-    newContacts.push(randomContact)
+    newRestOfContacts.splice(num,1);
+    newContacts.push(randomContact);
 
-    setContacts(newContacts)
-    setRestOfContacts(newRestOfContacts)
+    setContacts(newContacts);
+    setRestOfContacts(newRestOfContacts);
 
   }
 
-  function sortName() {
-    let newContacts = [...contacts].sort((a, b) => a.name.localeCompare(b.name));
+  function sortNameAscending() {
+    let newContacts = [...contacts].sort((a, b) => a.name.localeCompare(b.name)) ;
     setContacts(newContacts)
     FamousPeople()
   }
+
 
   function sortPopulatiry() {
     let newContacts = [...contacts].sort((a, b) => b.popularity - a.popularity);
