@@ -12,11 +12,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>IronContacts</h1>
+      <h1 style={{fontSize: '4rem'}}>Celebrities</h1>
       <button onClick={getRandom} >Add Random Famous</button> 
       <button onClick={sortName} >Sort by Name</button> 
       <button onClick={sortPopulatiry} >Sort by Popularity</button>
-      <table>
+      <table style={{margin: '20px auto'}}>
             <tr>
               <th>Picture</th>
               <th>Name</th>
@@ -31,15 +31,15 @@ function App() {
     console.log(contacts)
     return contacts.map((eachFamousPerson) => {
       return (
-          <tr key={eachFamousPerson.id} style={{margin: '0 auto', padding: '20px'}}>
+          <tr key={eachFamousPerson.id} style={{margin: 'auto', padding: '20px'}}>
               <td>
-                <img style={{width: '50px'}} src={eachFamousPerson.pictureUrl} alt="Holywood" />
+                <img style={{width: '100px'}} src={eachFamousPerson.pictureUrl} alt="Holywood" />
               </td>
               <td>
-                <p>{eachFamousPerson.name}</p>
+                <p style={{fontSize: '22px', fontWeight: 'bold', textAlign: 'center'}}>{eachFamousPerson.name}</p>
               </td>
               <td>
-                <p>{eachFamousPerson.popularity.toFixed(2)}</p>
+                <p style={{fontSize: '22px'}}>{eachFamousPerson.popularity.toFixed(2)}</p>
               </td>
               <td>
                 <p><button id={eachFamousPerson.id} onClick={deleteContact}>Delete</button></p>
